@@ -13,6 +13,8 @@ import java.util.concurrent.Future;
  * Alternative of : Creating a new thread , waiting for it to get it completed and then get the result by some 
  * notification method. Because run method does not return anything , nor it can throw any checked excepion.
  * 
+ * When to use : Fetching some thing from Network , doing expensive calculation where exception may happen.
+ * 
  * Example description : Given an integer array , we need to compute the sum.
  *
  * @author {Subrata Saha(saha.subrata@gmail.com)}
