@@ -60,7 +60,7 @@ public class CallableExample {
 	
 	private void callableExample() throws InterruptedException, ExecutionException{
 		ExecutorService service = Executors.newFixedThreadPool(3);
-		Future<Integer> future = service.submit(callable);
+		Future<Integer> future = service.submit(callable); // cancel, isDone , isCancelled can be performed.
 		
 		int resultIs = future.get(); // It is a blocking call and waiting is taken care inside the API
 		System.out.println("***************** Print result using runnable::"+resultIs);
