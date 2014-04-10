@@ -13,13 +13,17 @@ import com.thread.countdownlatch.startserver.MailServiceHealthChecker;
 
 /**
  * 
- * What it is :
+ * What it is : Checks the completion of the child threads if the size of the created children is known.
+ *              It enables a thread to wait for completion of child threads. 
+ *              But there is no waiting amongst the children until they finish each others tasks. 
+ *              Children may execute asynchronously and after their work is done will exit making a countdown.  
  *
- * Alternative of :
+ * Alternative of : 
  *
- * When to use :
+ * When to use : To completed severals task before starting the main task. And all those several task is not
+ *               dependent on each other tasks i.e they are mutually independent. 
  *
- * Example description :
+ * Example description : Before making the server enable to the user check if the important services are up and running.
  *
  * @author Subrata Saha (saha.subrata@gmail.com)
  *
