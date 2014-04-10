@@ -16,7 +16,7 @@ import com.thread.countdownlatch.startserver.MailServiceHealthChecker;
  * What it is : Checks the completion of the child threads if the size of the created children is known.
  *              It enables a thread to wait for completion of child threads. 
  *              But there is no waiting amongst the children until they finish each others tasks. 
- *              Children may execute asynchronously and after their work is done will exit making a countdown.  
+ *              Children may execute asynchronously and after their work is done will exit making a count down.  
  *
  * Alternative of : 
  *
@@ -32,14 +32,18 @@ public class CountDownLatchExample {
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		
-		CountDownLatch latch = new CountDownLatch(2);
-		ExecutorService service = Executors.newFixedThreadPool(2);
+		CountDownLatch latch = new CountDownLatch(2); 
+		// if this no is not matching countdown call then the main thread will wait for ever.
+		// "**********Subrata :: Waiting for the task is over..."  will never come !!!
+		
+		ExecutorService service = Executors.newFixedThreadPool(2); 
+		// ideally this should be same as no of work.
 		
 		ArrayList<AbstractServerHealthChecker> list = new ArrayList<AbstractServerHealthChecker>();
 		list.add(new MailServiceHealthChecker(latch));
 		list.add(new DatabaseServiceHealthChecker(latch));
 		
-		ArrayList<Future> futureList = new ArrayList<Future>();
+		ArrayList<Future<Boolean>> futureList = new ArrayList<Future<Boolean>>();
 		
 		for(AbstractServerHealthChecker svc: list){
 			futureList.add(service.submit(svc));
