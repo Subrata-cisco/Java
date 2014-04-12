@@ -22,6 +22,8 @@ import com.thread.countdownlatch.startserver.MailServiceHealthChecker;
  *
  * When to use : To completed severals task before starting the main task. And all those several task is not
  *               dependent on each other tasks i.e they are mutually independent. 
+ *               Dont use it : when there are multiple big parallel work to be done but on one thread failure
+ *               you dont want to proceed with the operation because it cant signal another thread to stop/cancel/wait etc.
  *
  * Example description : Before making the server enable to the user check if the important services are up and running.
  *
