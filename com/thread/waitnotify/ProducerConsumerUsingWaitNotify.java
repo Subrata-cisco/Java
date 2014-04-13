@@ -2,9 +2,22 @@ package com.thread.waitnotify;
 
 import java.util.Vector;
 
+/**
+ * 
+ * What it is : One of the earliest and finest way of thread communication in java.
+ *
+ * Alternative of : Advance version can be achieved using Lock && condition.
+ *
+ * When to use : when works need to be done concurrently but thread need to communicate with each other.
+ *
+ * Example description :
+ *
+ * @author Subrata Saha (saha.subrata@gmail.com)
+ *
+ */
 public class ProducerConsumerUsingWaitNotify {
 	public static void main(String args[]) {
-		Vector sharedQueue = new Vector();
+		Vector<Integer> sharedQueue = new Vector<Integer>();
 		int size = 50;
 		Thread prodThread = new Thread(new Producer(sharedQueue, size),
 				"Producer");
@@ -17,10 +30,10 @@ public class ProducerConsumerUsingWaitNotify {
 
 class Producer implements Runnable {
 
-	private final Vector sharedQueue;
+	private final Vector<Integer> sharedQueue;
 	private final int SIZE;
 
-	public Producer(Vector sharedQueue, int size) {
+	public Producer(Vector<Integer> sharedQueue, int size) {
 		this.sharedQueue = sharedQueue;
 		this.SIZE = size;
 	}
@@ -61,12 +74,10 @@ class Producer implements Runnable {
 
 class Consumer implements Runnable {
 
-	private final Vector sharedQueue;
-	private final int SIZE;
+	private final Vector<Integer> sharedQueue;
 
-	public Consumer(Vector sharedQueue, int size) {
+	public Consumer(Vector<Integer> sharedQueue, int size) {
 		this.sharedQueue = sharedQueue;
-		this.SIZE = size;
 	}
 
 	@Override
