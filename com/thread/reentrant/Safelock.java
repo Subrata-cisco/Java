@@ -4,6 +4,25 @@ import java.util.Random;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/*
+ * Synchronized code relies on a simple kind of reentrant lock. This kind of lock is easy to use, but has many limitations. 
+ * More sophisticated locking idioms are supported by the java.util.concurrent.locks package. 
+ * We won't examine this package in detail, but instead will focus on its most basic interface, Lock.
+ *
+ * Lock objects work very much like the implicit locks used by synchronized code. 
+ * As with implicit locks, only one thread can own a Lock object at a time. 
+ * Lock objects also support a wait/notify mechanism, through their associated Condition objects.
+ *
+ * The biggest advantage of Lock objects over implicit locks is their ability to back out of an attempt to acquire a lock. 
+ * The tryLock method backs out if the lock is not available immediately or before a timeout expires (if specified). 
+ * The lockInterruptibly method backs out if another thread sends an interrupt before the lock is acquired.
+ *
+ * Let's use Lock objects to solve the deadlock problem we saw in Liveness. 
+ * Alphonse and Gaston have trained themselves to notice when a friend is about to bow. 
+ * We model this improvement by requiring that our Friend objects must acquire locks for both participants before proceeding with the bow. 
+ * Here is the source code for the improved model, Safelock. To demonstrate the versatility of this idiom,
+ * we assume that Alphonse and Gaston are so infatuated with their newfound ability to bow safely that they can't stop bowing to each other:
+ */
 public class Safelock {
 	static class Friend {
 		private final String name;
