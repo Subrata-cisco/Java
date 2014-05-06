@@ -36,6 +36,12 @@ public class StreamReductionExample {
 		double maxAgeForFeMale = list.stream().filter(p->p.getSex().equals("F")).mapToInt(Person::getAge).max().getAsInt();
 
 		System.out.println(" maxAgeForMale ::"+maxAgeForMale+" maxAgeForFeMale ::"+maxAgeForFeMale);
+		
+		double maxAgeForMaleLamda = list.stream().filter(p->p.getSex().equals("M")).mapToInt(Person::getAge).reduce(0, (a,b)->a+b);
+		double maxAgeForFeMaleLamda = list.stream().filter(p->p.getSex().equals("F")).mapToInt(Person::getAge).reduce(0, (a,b)->a+b);
+		
+		System.out.println(" maxAgeForMaleLamda ::"+maxAgeForMaleLamda+" maxAgeForFeMaleLamda ::"+maxAgeForFeMaleLamda);
+
 	}
 
 	class Person {
