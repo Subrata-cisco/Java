@@ -49,7 +49,7 @@ public class CyclicBarrierWithQueueExample {
 
 		// import all
 		barrier.reset();
-		List<String> sqlPerLanguge = Collections.nCopies(47, "language");
+		List<String> sqlPerLanguge = Collections.nCopies(5, "language");
 		updateTag = UUID.randomUUID().toString();
 		log("Update all, flagged all with updateTag: updateTag= " + updateTag);
 		for (String language : sqlPerLanguge) {

@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 public class StreamsWithFileOperation {
 	public static void main(String[] args) throws IOException  {
 		StreamsWithFileOperation obj = new StreamsWithFileOperation();
-		obj.example1();
+		obj.example6();
 		//obj.example2();
 		//obj.example3();
 		//obj.example4();

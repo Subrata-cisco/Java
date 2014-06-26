@@ -26,6 +26,7 @@ public class ParallelSortUsingCB<E extends Comparable<E>> {
 	private final CyclicBarrier barrier = new CyclicBarrier(noThreads + 1,
 			new Runnable() {
 				public void run() {
+					System.out.println("****** Subrata -> Finisghed...");
 					sortStageComplete();
 				}
 			});

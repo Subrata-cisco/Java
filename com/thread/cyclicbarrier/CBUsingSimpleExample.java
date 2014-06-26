@@ -113,7 +113,14 @@ public class CBUsingSimpleExample {
 			t1.start();
 		}
 		
-		cbExample.cb.reset();
+		//cbExample.cb.reset();
+		
+		/*CBUsingSimpleExample.Worker worker1 =  cbExample.new Worker();
+		
+		for(int i=0 ;i<cbExample.getLength();i++){
+			Thread t1 = new Thread(worker1);
+			t1.start();
+		}*/
 		
 		
 		System.out.println("**********Subrata :: Main Thread finished !!");

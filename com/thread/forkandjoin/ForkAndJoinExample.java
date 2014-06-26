@@ -53,7 +53,7 @@ public class ForkAndJoinExample extends RecursiveTask<Integer> {
 		final int[] data = new int[10];
 		final Random random = new Random();
 		for (int i = 0; i < data.length; i++) {
-			data[i] = random.nextInt(0);
+			data[i] = random.nextInt(10);
 		}
 		// submit the task to the pool
 		final ForkJoinPool pool = new ForkJoinPool(4);

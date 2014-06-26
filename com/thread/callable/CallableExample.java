@@ -32,6 +32,13 @@ public class CallableExample {
 			result = 0;
 			for(int i : arr){
 				result = result + i;
+				try {
+					// taking some more time for doing the calculation while not releasing the thread.
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 	};
@@ -53,6 +60,13 @@ public class CallableExample {
 			int cresult = 0; // We dont need any global variable to save the result.
 			for(int i : arr){
 				cresult = cresult + i;
+				try {
+					// taking some more time for doing the calculation while not releasing the thread.
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			return cresult;
 		}

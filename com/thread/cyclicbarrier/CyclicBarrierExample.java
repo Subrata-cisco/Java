@@ -22,8 +22,8 @@ public class CyclicBarrierExample {
 			}
 		};
 
-		CyclicBarrier barrier1 = new CyclicBarrier(3, barrier1Action);
-		CyclicBarrier barrier2 = new CyclicBarrier(3, barrier2Action);
+		CyclicBarrier barrier1 = new CyclicBarrier(2, barrier1Action);
+		CyclicBarrier barrier2 = new CyclicBarrier(2, barrier2Action);
 
 		CyclicBarrierRunnable barrierRunnable1 = new CyclicBarrierRunnable(
 				barrier1, barrier2);
