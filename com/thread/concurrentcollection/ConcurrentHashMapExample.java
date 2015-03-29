@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * 2) ConcurrentHashMap does not lock the entire Map when writing to it. It only locks the part of the Map 
  that is being written to, internally. [i.e segments]
  * 3) ConcurrentHashMap does not throw ConcurrentModificationException if the ConcurrentHashMap is changed while being iterated.
- * 4) It has thread safe iterator but The Iterator is not designed to be used by more than one thread though.
+ * 4) It has thread safe iterator but the Iterator is not designed to be used by more than one thread though.
  * 5) It uses Lock for critical section data but not synchronized .
  * 6) It is worth knowing is use of putIfAbsent() method.
  *    [because, during put operation whole map is not locked, and while one thread is putting value, other thread's get() 

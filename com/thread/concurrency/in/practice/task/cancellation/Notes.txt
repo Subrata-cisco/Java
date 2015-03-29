@@ -1,0 +1,25 @@
+Why Task Cancellation :
+1. User requested it.
+2. Time limited activities.
+3. Application events.
+4. Errors
+5. Shutdown.
+
+Cancellation policy :
+
+Interruption policy :
+is about how a thread responds to interrupt request , how much work is atomic , and how much responsive.
+
+Notes:
+1. Provide Cancellation policy in your run method, then you can swallaow interrupted exception.
+2. If you don't know the Cancellation policy then you 2 choice.
+   a. propagate the interrupted exception after cleanup to the called to handle it.
+   b. restore the interruption status by calling interrupt again , so that code higher up can deal with it.
+3. efficiency vs responsiveness : when you have higher responsive requirement then dont use long running method which dont
+   support interruption.
+4.
+
+See the examples of cancelling a task using the following concepts. [Implement cancellation policy in different cases.]
+1. using volatile field.
+2. using interrupted exception.
+3. timed run out using Future.cancel , scheduling etc.

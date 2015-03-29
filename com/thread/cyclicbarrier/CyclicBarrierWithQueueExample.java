@@ -38,7 +38,7 @@ public class CyclicBarrierWithQueueExample {
 			public void run() {
 				// delete all not updated with updateTag
 				// ...
-				log("Update done, remove not updated: updateTag= " + updateTag);
+				log("****** Update done, remove not updated: updateTag= " + updateTag);
 				updateTag = null;
 			}
 		});

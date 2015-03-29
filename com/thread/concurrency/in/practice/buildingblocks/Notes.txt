@@ -1,0 +1,31 @@
+Synchronized collection:
+-----------------------
+Collections.synchronizedXXX factory methods.
+
+If Vector is synchronized why we need synchronized functin ?
+Answer : For compound operation. 
+         e.g repeatedly fetch the items until collections are empty.
+             and getting the last element.  Will go wrong..
+             
+             Solution is : external client locking 
+             e.g synchronized(list) for iterating 
+                 synchronized(list) for deleting.
+                 but it will impact the performance because one thread at a time.
+                 
+Collections.synchronizedList(new ArrayList<String>):
+-> Simply puts a lock on every method , so an led to performance degradation.
+
+Concurrent Collections:
+-----------------------
+->read operation is allowed for all thread
+->write operation allowed to few threads.
+
+ConcurrentHashMap -> instead of synchronized map.
+CopyOnWriteArrayList -> synchronized list
+BlockingQueue ->
+ConcurrentLinkedQueue ->
+PriorityQueue ->
+ConcurrentSkipListMap -> synchronized SortedMap/TreeMap
+ConcurrentSkipListSet -> synchronized SortedSet
+
+             

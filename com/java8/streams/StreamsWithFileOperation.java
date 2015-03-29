@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.function.Consumer;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 /**
@@ -15,13 +17,38 @@ import java.util.stream.Stream;
 public class StreamsWithFileOperation {
 	public static void main(String[] args) throws IOException  {
 		StreamsWithFileOperation obj = new StreamsWithFileOperation();
-		obj.example6();
+		obj.example7();
 		//obj.example2();
-		//obj.example3();
+		//obj.example3();  implements
 		//obj.example4();
 		//obj.example5();
 		//obj.example6();
 	}
+	
+	
+	private  void example7() throws IOException{
+		try (Stream<String> st = Files.lines(Paths.get("C:\\Users\\subratas\\Desktop\\Channel_Lineup_Master.csv"))) {
+			st.map(s -> s.toString()).forEach(line -> calculate(line));
+		}
+	}
+	
+	HashMap<String,String> map = new HashMap<>();
+	public void calculate(String sto) {
+		if (!sto.startsWith("#") && !sto.startsWith(",") && sto.length() != 0) {
+			String[] pp = sto.split(",");
+			String ll = pp[2];
+			if (ll != null) {
+				ll = ll.trim();
+				if (!map.containsKey(ll)) {
+					map.put(ll, pp[1]);
+				} else {
+					System.out.println(" Value :: "+ll + " ---  Key ::["+map.get(ll)+"] --- new Key ::[" + pp[1]+"] ");
+				}
+			}
+		}
+	}
+
+		
 	
 	private void example6() throws IOException{
 		Files.lines(new File("C:\\Subrata\\RestartController.java").toPath())
@@ -78,4 +105,6 @@ public class StreamsWithFileOperation {
 			st.forEach(System.out::println);
 		}
 	}
+	
+	
 }

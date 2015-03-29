@@ -24,6 +24,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * we assume that Alphonse and Gaston are so infatuated with their newfound ability to bow safely that they can't stop bowing to each other:
  */
 public class Safelock {
+	
 	static class Friend {
 		private final String name;
 		private final Lock lock = new ReentrantLock();

@@ -53,7 +53,7 @@ public class CBUsingSimpleExample {
 		
 		
 		
-		cb = new CyclicBarrier(atoms.length , new Runnable(){
+		cb = new CyclicBarrier(2 , new Runnable(){
 			@Override
 			public void run() {
 				System.out.println("********** Subrata :: All download finished , start merging them back times !!");
@@ -67,6 +67,7 @@ public class CBUsingSimpleExample {
 	 * Method to to process each line of Atoms.
 	 */
 	private void startDownLoadTheRowArray(int index){
+		
 		System.out
 				.println("**********Subrata :: Download part ::"+index+" by ::"+Thread.currentThread().getName());
 	}
@@ -76,6 +77,7 @@ public class CBUsingSimpleExample {
 
 		@Override
 		public void run() {
+			//System.out.println("CBUsingSimpleExample.Worker.run()"+Thread.currentThread().getName());
 			// Doing one kind of operation on particular row.
 			startDownLoadTheRowArray(count++);
 			// Here one wait call means once all the thread are done the above processing they will get a call on CyclicBarrier run method.

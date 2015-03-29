@@ -1,6 +1,10 @@
 package com.java7;
 
+
 public class Java7Notes {
+	
+	
+	
 	/*
 	 * 
 	 * 
@@ -71,12 +75,19 @@ public class Java7Notes {
 	 * calling close() method of AutoClosable. Now same example in Java 7 will
 	 * look like below, a much concise and cleaner code :
 	 * 
-	 * public static void main(String args[]) { try (FileInputStream fin = new
-	 * FileInputStream("info.xml"); BufferedReader br = new BufferedReader(new
-	 * InputStreamReader(fin));) { if (br.ready()) { String line1 =
-	 * br.readLine(); System.out.println(line1); } } catch
-	 * (FileNotFoundException ex) { System.out.println("Info.xml is not found");
-	 * } catch (IOException ex) { System.out.println("Can't read the file"); } }
+	 * public static void main(String args[]) { 
+	 *   try ( FileInputStream fin = new FileInputStream("info.xml"); 
+	 *         BufferedReader br = new BufferedReader(new InputStreamReader(fin));)  { 
+	 *            if (br.ready()) { 
+	 *                String line1 = br.readLine(); System.out.println(line1); 
+	 *            } 
+	 *   } catch (FileNotFoundException ex) { 
+	 *     System.out.println("Info.xml is not found");
+	 *   } catch (IOException ex) { 
+	 *     System.out.println("Can't read the file"); 
+	 *   } 
+	 * }
+	 * 
 	 * Since Java is taking care of closing opened resources including files and
 	 * streams, may be no more leaking of file descriptors and probably an end
 	 * to file descriptor error. Even JDBC 4.1 is retrofitted as AutoClosable

@@ -64,6 +64,9 @@ public class ExecutorExample {
 	    ExecutorService service = Executors.newFixedThreadPool(noOfThreads); // Fixed no of threads
 	    //ExecutorService service = Executors.newCachedThreadPool(); // jvm will take care of required no of threads.
 	    
+	    // startvation policy
+	    
+	    
 	    // queue some tasks 
 	    for (int i = 0; i < noOfTasks; i++) {
 	        service.submit(new ThreadTask(i+1, map));

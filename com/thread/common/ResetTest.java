@@ -21,8 +21,8 @@ public class ResetTest {
 		cb.reset();
 		System.out.println("****** Subrata -> middle");
 
-		//obj.new One(cb, "t3");
-		//obj.new Two(cb, "t4");
+		obj.new One(cb, "t3");
+		obj.new Two(cb, "t4");
 
 	}
 
