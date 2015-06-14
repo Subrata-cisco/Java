@@ -10,10 +10,10 @@ import customannotation.ICompanyInfo.CustType;
  * @author subratas
  *
  */
-public class IncomingRequestHandler {
+public class IncomingRequestHandlerClient {
 	
 	public static void main(String[] args) throws Exception {
-		IncomingRequestHandler handler = new IncomingRequestHandler();
+		IncomingRequestHandlerClient handler = new IncomingRequestHandlerClient();
 		handler.showItWorks();
 	}
 	

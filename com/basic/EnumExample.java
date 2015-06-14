@@ -120,6 +120,53 @@ public class EnumExample {
 		}
 	}
 	
+
+
+	public enum SIZE1 {BIG,SMALL}
+	
+	public enum SIZE2 {
+		
+		BIG(10),SMALL(1);
+		
+		int actualSize = -1;
+	
+		SIZE2(int size){
+		  this.actualSize = size ;
+		}
+	
+	    int getActualSize(){
+	    	return actualSize;
+	    }
+	
+	}
+	
+	
+	public enum SIZE3 {
+		
+		BIG(10){
+			public String getDefaultSize(){
+		    	return "A" ;
+		    }
+		},SMALL(1){
+			public String getDefaultSize(){
+		    	return "B" ;
+		    }
+		};
+		
+		int actualSize = -1;
+	
+		SIZE3(int size){
+		  this.actualSize = size ;
+		}
+	
+	    int getActualSize(){
+	    	return actualSize;
+	    }
+	    
+	    public abstract String getDefaultSize();
+	
+	}
+	
 	public static void main(String[] args) {
 		// Angle lookup
 				System.out.println(Direction.NORTH.getAngle());
