@@ -1,7 +1,6 @@
 package com.basic;
 
-
-class Car implements Externalizable {
+/*class Car implements Externalizable {
 
     String name;
     int year;
@@ -18,61 +17,51 @@ class Car implements Externalizable {
 	out.writeInt(year);
     }
 
-    /** 
-     * Mandatory readExternal method. 
-     */
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 	name = (String) in.readObject();
 	year = in.readInt();
     }
 
-    /** 
-     * Prints out the fields. used for testing!
-     */
     public String toString() {
         return("Name: " + name + "\n" + "Year: " + year);
     }
 }
 
-
 import java.io.*;
 
 public class ExternExample {
-   
-    public static void main(String args[]) {
 
-	// create a Car object 
-	ExternalizationExample car = new ExternalizationExample("Mitsubishi", 2009);
-	ExternalizationExample newCar = null;
-	
-	//serialize the car
-	try {
-	    FileOutputStream fo = new FileOutputStream("tmp");
-	    ObjectOutputStream so = new ObjectOutputStream(fo);
-	    so.writeObject(car);
-	    so.flush();
-	} catch (Exception e) {
-	    System.out.println(e);
-	    System.exit(1);
-	}
+	public static void main(String args[]) {
 
-	// de-serialize the Car
-	try {
-	    FileInputStream fi = new FileInputStream("tmp");
-	    ObjectInputStream si = new ObjectInputStream(fi);  	    
-	    newCar = (ExternalizationExample) si.readObject();
-	}
-	catch (Exception e) {
-	    System.out.println(e);
-	    System.exit(1);
-	}
+		// create a Car object
+		ExternalizationExample car = new ExternalizationExample("Mitsubishi", 2009);
+		ExternalizationExample newCar = null;
 
-	/* 
-	 * Print out the original and new car information
-	 */
-	System.out.println("The original car is ");
-	System.out.println(car);
-	System.out.println("The new car is ");
-        System.out.println(newCar);
-    }
+		// serialize the car
+		try {
+			FileOutputStream fo = new FileOutputStream("tmp");
+			ObjectOutputStream so = new ObjectOutputStream(fo);
+			so.writeObject(car);
+			so.flush();
+		} catch (Exception e) {
+			System.out.println(e);
+			System.exit(1);
+		}
+
+		// de-serialize the Car
+		try {
+			FileInputStream fi = new FileInputStream("tmp");
+			ObjectInputStream si = new ObjectInputStream(fi);
+			newCar = (ExternalizationExample) si.readObject();
+		} catch (Exception e) {
+			System.out.println(e);
+			System.exit(1);
+		}
+
+		System.out.println("The original car is ");
+		System.out.println(car);
+		System.out.println("The new car is ");
+		System.out.println(newCar);
+	}
 }
+*/
