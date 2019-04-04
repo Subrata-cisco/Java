@@ -1,4 +1,4 @@
-package com.thread.cyclicbarrier;
+package thread.cyclicbarrier;
 
 import java.util.Collections;
 import java.util.List;

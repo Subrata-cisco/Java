@@ -1,9 +1,9 @@
-package com.thread.cyclicbarrier;
+package thread.cyclicbarrier;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
-public class CyclicBarrierExample {
+public class CyclicBarrierExample { 
 
 	public static void main(String[] args) {
 		CyclicBarrierExample barrierExample = new CyclicBarrierExample();

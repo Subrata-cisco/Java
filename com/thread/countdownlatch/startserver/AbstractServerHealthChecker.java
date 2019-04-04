@@ -1,4 +1,4 @@
-package com.thread.countdownlatch.startserver;
+package thread.countdownlatch.startserver;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
