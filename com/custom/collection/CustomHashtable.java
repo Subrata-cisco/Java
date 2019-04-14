@@ -1,8 +1,5 @@
 package com.custom.collection;
 
-import java.util.Hashtable;
-
-
 public class CustomHashtable<K,V> {
 	
 	private transient Entry<?,?>[] table;
@@ -12,7 +9,6 @@ public class CustomHashtable<K,V> {
 	private int count;
 	
 	public CustomHashtable(){
-		Hashtable<K, V>
 		this.loadFactor = .75f;
         table = new Entry<?,?>[11];
         threshold = (int)Math.min(11 * loadFactor, MAX_ARRAY_SIZE + 1);

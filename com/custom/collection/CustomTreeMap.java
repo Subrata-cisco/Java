@@ -1,8 +1,5 @@
 package com.custom.collection;
 
-import java.util.Comparator;
-import java.util.TreeMap.Entry;
-
 public class CustomTreeMap<K, V> {
 
 	private transient Entry<K, V> root;
