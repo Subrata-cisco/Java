@@ -1,4 +1,4 @@
-package com.thread.cyclicbarrier;
+package thread.cyclicbarrier;
 
 import java.util.Collections;
 import java.util.List;
@@ -32,7 +32,7 @@ public class CyclicBarrierWithQueueExample {
 
 	public static void main(String[] args) {
 		// prepare update thread pool
-		int numberOfThreads = 4;
+		int numberOfThreads = 2;
 		queue = new LinkedBlockingQueue<String>();
 		barrier = new CyclicBarrier(numberOfThreads, new Runnable() {
 			public void run() {

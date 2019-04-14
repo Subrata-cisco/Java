@@ -5,12 +5,12 @@ import java.util.concurrent.BlockingQueue;
 
 public class ProducerConsumerUsingBlockingQueue {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(100);
 		ProducerConsumerUsingBlockingQueue con = new ProducerConsumerUsingBlockingQueue();
 		
-		ProducerConsumerUsingBlockingQueue.Producer p = new ProducerConsumerUsingBlockingQueue(). new Producer(queue);    
-		ProducerConsumerUsingBlockingQueue.Consumer c = new ProducerConsumerUsingBlockingQueue(). new Consumer(queue);  
+		Producer p = new Producer(queue);    
+		Consumer c = new Consumer(queue);  
 		
 		
 		Thread t1 = new Thread(p);
@@ -18,47 +18,57 @@ public class ProducerConsumerUsingBlockingQueue {
 		
 		t1.start();
 		t2.start();
-	} 
-	
-	
-	class Producer implements Runnable {
-		BlockingQueue queue;
 		
-		public Producer(BlockingQueue queue) {
-			super();
-			this.queue = queue;
-		}
+		t1.join();
+		t2.join();
+		
+		System.out.println("(DONE)");
+	} 
+}
 
-		@Override
-		public void run() {
-			int i = 0;
-			while(true){  
-            	try {
-            		String val = "value "+i;
-					queue.put(val);
-					System.out.println(" Produced ::"+val);
-					i++;
-				} catch (InterruptedException e) {
-				}
-            }
+class Producer implements Runnable {
+	private BlockingQueue queue;
+	
+	public Producer(BlockingQueue queue) {
+		super();
+		this.queue = queue;
+	}
+
+	@Override
+	public void run() {
+		int i = 0;
+		while(i<99){  
+        	try {
+        		String val = "value "+i;
+				queue.put(val);
+				System.out.println(" Produced ::"+val);
+				i++;
+			} catch (InterruptedException e) {
+			}
+        }
+		try {
+			queue.put("Bye");
+		} catch (InterruptedException e) {
 		}
 	}
-	
-	class Consumer implements Runnable {
-		BlockingQueue queue;
-		public Consumer(BlockingQueue queue) {
-			super();
-			this.queue = queue;
-		}
+}
 
-		@Override
-		public void run() {
-			while(!queue.isEmpty()){
-				try {
-					System.out.println(" Consumed ::"+queue.take());
-				} catch (InterruptedException e) {
-				}
+class Consumer implements Runnable {
+	private BlockingQueue queue;
+	public Consumer(BlockingQueue queue) {
+		super();
+		this.queue = queue;
+	}
+
+	@Override
+	public void run() {
+		String val = null; 
+		try {
+			while((val = (String)queue.take()) != "Bye"){
+				System.out.println(" Consumed ::"+val);
 			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 }

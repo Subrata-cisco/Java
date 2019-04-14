@@ -22,7 +22,7 @@ public class CustomBlockingQueue {
 		}
 		
 		list.add(list.size(), val);
-		list.notify();
+		list.notifyAll();
 	  }
   }
   
@@ -37,7 +37,7 @@ public class CustomBlockingQueue {
 		}
 		
 		list.remove(0);
-		list.notify();
+		list.notifyAll();
 	  }
   }
 	
