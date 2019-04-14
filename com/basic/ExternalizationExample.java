@@ -1,6 +1,6 @@
 package com.basic;
 
-
+/*
 class Car implements Externalizable {
 
     String name;
@@ -18,17 +18,12 @@ class Car implements Externalizable {
 	out.writeInt(year);
     }
 
-    /** 
-     * Mandatory readExternal method. 
-     */
+    
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 	name = (String) in.readObject();
 	year = in.readInt();
     }
 
-    /** 
-     * Prints out the fields. used for testing!
-     */
     public String toString() {
         return("Name: " + name + "\n" + "Year: " + year);
     }
@@ -67,12 +62,10 @@ public class ExternExample {
 	    System.exit(1);
 	}
 
-	/* 
-	 * Print out the original and new car information
-	 */
+	
 	System.out.println("The original car is ");
 	System.out.println(car);
 	System.out.println("The new car is ");
         System.out.println(newCar);
     }
-}
+} */

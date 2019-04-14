@@ -10,7 +10,6 @@ import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
-
   /*
    
    Byte Array to InputStream and OutputStream
